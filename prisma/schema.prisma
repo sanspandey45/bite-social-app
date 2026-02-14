@@ -1,0 +1,134 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  // Means ID is automatically generated and is the primary key, mapped to MongoDB's _id field
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId 
+  name          String
+  username      String   @unique
+  email         String   @unique
+  password      String
+  bio           String? // Question mark for optional
+  image         String? // URL to profile picture, optional
+  imagePublicId String? // For storing Cloudinary public ID, also optional
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relationships
+  posts     Post[]    @relation("UserPosts") // One-to-many relationship with Post
+  comments  Comment[] @relation("UserComments") 
+  likes     Like[]    @relation("UserLikes")
+
+  // follow self-relations 
+  followers Follow[] @relation("UserFollowers")
+  following Follow[] @relation("UserFollowing")
+
+  // notifications (sent/received)
+  notificationsReceived Notification[] @relation("NotificationsReceived")
+  notificationsSent     Notification[] @relation("NotificationsSent")
+
+  @@map("users") 
+  // Map to "users" collection in MongoDB
+  // Just making sure the collection name is plural
+}
+
+model Post{
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  text          String?
+  image         String?
+  imagePublicId String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  authorId      String   @db.ObjectId // Reference to User who created the post 
+  //rating    Int 
+      // 1-10, to account for half-stars
+      // Optional? Since no rating means 0 stars, and can be handled in frontend
+  
+  // relationships
+  author        User           @relation("UserPosts",fields: [authorId],references: [id] )
+  // Tells the user model that its "UserPosts" model is related to this post model through authorId 
+  likes         Like[]         @relation("PostLikes")
+  comments      Comment[]      @relation("PostComments")
+  notifications Notification[] @relation("NotificationPost")
+  
+
+
+  @@map("posts") 
+}
+
+model Like{
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId   // Reference to User who liked
+  PostId    String   @db.ObjectId  // Reference to Post that was liked
+
+  @@unique([userId, PostId]) // Ensure user can only like a post once
+  @@map("likes") 
+
+  // relationships
+  user User @relation("UserLikes", fields: [userId], references: [id], onDelete: Cascade) 
+  post Post @relation("PostLikes", fields: [PostId], references: [id], onDelete: Cascade)
+
+
+  //reviewId  String   
+      // Reference to Review that was liked?
+    
+}
+
+model Comment{
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  content     String
+  createdAt   DateTime @default(now())
+  authorId    String   @db.ObjectId // Reference to User who made the comments
+  postId      String   @db.ObjectId // Reference to Post that was commented on
+
+  // relationships
+  author User @relation("UserComments",fields: [authorId],references: [id] )
+  post   Post @relation("PostComments", fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("comments") 
+}
+
+model Follow{
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  followerId  String   @db.ObjectId 
+  followingId String   @db.ObjectId 
+  createdAt   DateTime @default(now())
+
+  // relationships
+  following User @relation("UserFollowing", fields: [followingId], references: [id]) 
+  follower User @relation("UserFollowers", fields: [followerId], references: [id])
+
+  @@unique([followerId, followingId]) // Ensure a user can't follow another user more than once
+  @@map("follows")
+}
+
+model Notification{
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  type        String   // "like", "comment", "follow"
+  message     String 
+  isRead      Boolean  @default(false) // To track if the notification has been read
+  receiverId  String  @db.ObjectId // User who receives the notification
+  senderId    String @db.ObjectId
+  postId      String? @db.ObjectId
+  createdAt   DateTime @default(now())
+
+  // Relationships
+  receiver  User @relation("NotificationsReceived", fields: [receiverId], references: [id], onDelete: Cascade)
+  sender    User? @relation("NotificationsSent", fields: [senderId], references: [id], onDelete: Cascade)
+  post      Post? @relation("NotificationPost", fields: [postId], references : [id], onDelete: Cascade)
+
+
+  @@map("notifications")
+}
