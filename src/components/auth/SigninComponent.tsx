@@ -64,7 +64,7 @@ export default function SignupComponent() {
         {/* logo */}
         <div className="flex items-center gap-2 justify-center mb-4">
           <FaStarHalfAlt size={40} color="#4076dbea" />
-          <span className="text-3xl font-semibold tracking-wide text-black">
+          <span className="text-3xl font-semibold tracking-wide text-gray-900">
             Bite
           </span>
         </div>
@@ -79,7 +79,7 @@ export default function SignupComponent() {
         <form className="my-10" onSubmit={handleSubmit(onSubmit)}>
           {errors.root && (
             // FIRST handling root error for form not submitting due to existing user
-            <p className="right-0 py-2 text-red-500 text-sm">
+            <p className="right-0 py-2 text-red-700 text-md">
               <BiErrorCircle className="inline mr-2 mb-1" size={20} />
               {errors.root.message}
             </p>
@@ -92,7 +92,7 @@ export default function SignupComponent() {
             className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
           />
           {errors.email && (
-            <p className="text-red-500 text-sm mb-2">{errors.email.message}</p>
+            <p className="text-red-700 text-sm mb-2">{errors.email.message}</p>
           )}
 
           <input
@@ -102,7 +102,7 @@ export default function SignupComponent() {
             className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
           />
           {errors.password && (
-            <p className="text-red-500 text-sm mb-2">
+            <p className="text-red-700 text-sm mb-2">
               {errors.password.message}
             </p>
           )}

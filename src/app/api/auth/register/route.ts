@@ -31,14 +31,14 @@ export async function POST(req: Request) {
 
     if (existingUser) {
       return NextResponse.json(
-        { error: "User with this email or username already exists" },
+        { error: "Email or username already exists" },
         { status: 409 },
       );
     }
 
     if (existingUser) {
       return NextResponse.json(
-        { error: "User with this email or username already exists" },
+        { error: "Email or username already exists" },
         { status: 400 },
       );
     }

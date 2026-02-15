@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { FaStarHalfAlt } from "react-icons/fa";
+import { BiErrorCircle } from "react-icons/bi";
 import { motion } from "framer-motion";
 import z from "zod";
 
@@ -125,7 +126,7 @@ export default function SignupComponent() {
             transition={{ delay: 0.1, duration: 0.5 }}
           >
             <FaStarHalfAlt size={40} color="#4076dbea" />
-            <span className="text-3xl font-semibold tracking-wide text-black">
+            <span className="text-3xl font-semibold tracking-wide text-gray-900">
               Bite
             </span>
           </motion.div>
@@ -147,7 +148,10 @@ export default function SignupComponent() {
           <form className="my-10" onSubmit={handleSubmit(onSubmit)}>
             {errors.root && (
               // FIRST handling root error for form not submitting due to existing user
-              <p className="py-2 text-red-500 text-sm">{errors.root.message}</p>
+              <p className="right-0 py-2 text-red-700 text-md -mb-2 -mt-4">
+                <BiErrorCircle className="inline mr-2 mb-1" size={20} />
+                {errors.root.message}
+              </p>
             )}
 
             {/* Registering 4 input fields */}
@@ -158,7 +162,7 @@ export default function SignupComponent() {
               className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
             />
             {errors.name && (
-              <p className="text-red-500 text-sm mb-2">{errors.name.message}</p>
+              <p className="text-red-700 text-sm mb-1.5 -mt-1.5">{errors.name.message}</p>
             )}
 
             <input
@@ -168,7 +172,7 @@ export default function SignupComponent() {
               className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mb-2">
+              <p className="text-red-700 text-sm mb-1.5 -mt-1.5">
                 {errors.email.message}
               </p>
             )}
@@ -180,7 +184,7 @@ export default function SignupComponent() {
               className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
             />
             {errors.username && (
-              <p className="text-red-500 text-sm mb-2">
+              <p className="text-red-700 text-sm mb-1.5 -mt-1.5">
                 {errors.username.message}
               </p>
             )}
@@ -192,7 +196,7 @@ export default function SignupComponent() {
               className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
             />
             {errors.password && (
-              <p className="text-red-500 text-sm mb-2">
+              <p className="text-red-700 text-sm mb-1.5 -mt-1.5">
                 {errors.password.message}
               </p>
             )}
@@ -217,10 +221,6 @@ export default function SignupComponent() {
     </div>
   );
 }
-
-
-
-
 
 // DIFFERENT layout option if needed:
 //-----------------------------------------------------------------------------------------------
@@ -416,12 +416,6 @@ export default function SignupComponent() {
 //     </div>
 //   );
 // }
-
-
-
-
-
-
 
 //------------------------------------------------------------------------------------
 // DIFFERENT layout option if needed:
