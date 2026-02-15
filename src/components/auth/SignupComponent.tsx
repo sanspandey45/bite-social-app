@@ -82,7 +82,7 @@ export default function SignupComponent() {
     <div className="flex h-screen">
       {/* Left side - Logo & Message */}
       <motion.div
-        className="w-1/3 relative bg-blue-primary/30 flex flex-col items-center justify-center border-r border-white"
+        className="w-1/3 relative bg-rose-100 flex flex-col items-center justify-center border-r border-blue-primary"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
@@ -90,7 +90,7 @@ export default function SignupComponent() {
         {/* logo
         <FaStarHalfAlt size={50} color="black" className="mb-5" /> */}
         <motion.h1
-          className="text-4xl font-bold text-white mb-4"
+          className="text-4xl font-bold text-blue-primary mb-4"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.5 }}
@@ -111,12 +111,12 @@ export default function SignupComponent() {
 
       {/* Right side of screen - Signup Form */}
       <motion.div
-        className="w-2/3 flex items-center ml-20 bg-dark-1"
+        className="w-2/3 bg-indigo-200 flex items-center"
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="max-w-[320px] w-[90%]">
+        <div className="max-w-[320px] w-[90%] ml-20">
           {/* logo */}
           <motion.div
             className="flex items-center gap-2 mb-4"
@@ -125,7 +125,7 @@ export default function SignupComponent() {
             transition={{ delay: 0.1, duration: 0.5 }}
           >
             <FaStarHalfAlt size={40} color="#4076dbea" />
-            <span className="text-3xl font-semibold tracking-wide text-white">
+            <span className="text-3xl font-semibold tracking-wide text-black">
               Bite
             </span>
           </motion.div>
@@ -135,7 +135,7 @@ export default function SignupComponent() {
             Create a new account
           </h2> */}
           <motion.p
-            className="text-gray-400 text-sm"
+            className="text-gray-700 text-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
@@ -206,7 +206,7 @@ export default function SignupComponent() {
             </button>
           </form>
 
-          <div className="my-3 text-center text-white">
+          <div className="my-3 text-center text-gray-700">
             <span> Already have an account?</span>
             <Link href="/" className="ml-2 text-blue-primary">
               Sign in

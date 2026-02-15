@@ -59,18 +59,18 @@ export default function SignupComponent() {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen flex justify-center items-center bg-rose-100">
       <div className="max-w-[320px] w-[90%]">
         {/* logo */}
-        <div className="flex items-center gap-2 justify-center mb-8">
+        <div className="flex items-center gap-2 justify-center mb-4">
           <FaStarHalfAlt size={40} color="#4076dbea" />
-          <span className="text-3xl font-semibold tracking-wide text-white">
+          <span className="text-3xl font-semibold tracking-wide text-black">
             Bite
           </span>
         </div>
 
         {/* heading */}
-        <h2 className="text-center text-2xl mb-3 text-gray-400">
+        <h2 className="text-center text-xl mb-15 text-gray-600">
           Sign in to your account
         </h2>
         <p className="text-gray-500 text-center text-sm"></p>
@@ -109,7 +109,7 @@ export default function SignupComponent() {
 
           <button
             disabled={isSubmitting}
-            className="bg-blue-primary w-full my-2 py-2.5 text-white rounded-lg cursor-pointer flex items-center justify-center"
+            className="bg-blue-primary/90 w-full my-2 py-2.5 text-white rounded-lg cursor-pointer flex items-center justify-center"
           >
             {isSubmitting ? (
               <>
@@ -121,9 +121,9 @@ export default function SignupComponent() {
           </button>
         </form>
 
-        <div className="my-3 text-center text-white">
+        <div className="my-3 text-center text-gray-700">
           <span>Don&apos;t have an account?</span>
-          <Link href="/signup" className="ml-2 text-blue-primary">
+          <Link href="/signup" className="ml-2 text-blue-500">
             Sign up now
           </Link>
         </div>
