@@ -21,11 +21,3 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #e5e7eb !important;
   caret-color: #e5e7eb;
 }
-
-/* targeting the ones with dark-3 background only, extra safe but don't really need
-input.bg-dark-3:-webkit-autofill,
-input.bg-dark-3:-webkit-autofill:hover,
-input.bg-dark-3:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 30px #1a1a1a inset !important;
-  -webkit-text-fill-color: #e5e7eb !important;
-} */

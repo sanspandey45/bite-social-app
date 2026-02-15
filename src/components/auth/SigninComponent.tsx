@@ -89,7 +89,7 @@ export default function SignupComponent() {
             {...register("email")}
             type="text"
             placeholder="Email Address"
-            className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
+            className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-3xl outline-none text-gray-100 my-3"
           />
           {errors.email && (
             <p className="text-red-700 text-sm mb-2">{errors.email.message}</p>
@@ -99,7 +99,7 @@ export default function SignupComponent() {
             {...register("password")} // Now all inputs are connected to React Hook Form
             type="password" // changed from text to password
             placeholder="Password"
-            className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
+            className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-3xl outline-none text-gray-100 my-3"
           />
           {errors.password && (
             <p className="text-red-700 text-sm mb-2">
@@ -109,7 +109,7 @@ export default function SignupComponent() {
 
           <button
             disabled={isSubmitting}
-            className="bg-blue-primary/90 w-full my-2 py-2.5 text-white rounded-lg cursor-pointer flex items-center justify-center"
+            className="bg-blue-primary/90 w-full my-2 py-2.5 text-white rounded-3xl cursor-pointer flex items-center justify-center"
           >
             {isSubmitting ? (
               <>

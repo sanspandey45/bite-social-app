@@ -159,7 +159,7 @@ export default function SignupComponent() {
               {...register("name")}
               type="text"
               placeholder="Full Name"
-              className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
+              className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-3xl outline-none text-gray-100 my-3"
             />
             {errors.name && (
               <p className="text-red-700 text-sm mb-1.5 -mt-1.5">{errors.name.message}</p>
@@ -169,7 +169,7 @@ export default function SignupComponent() {
               {...register("email")}
               type="text"
               placeholder="Email Address"
-              className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
+              className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-3xl outline-none text-gray-100 my-3"
             />
             {errors.email && (
               <p className="text-red-700 text-sm mb-1.5 -mt-1.5">
@@ -181,7 +181,7 @@ export default function SignupComponent() {
               {...register("username")}
               type="text"
               placeholder="Username"
-              className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
+              className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-3xl outline-none text-gray-100 my-3"
             />
             {errors.username && (
               <p className="text-red-700 text-sm mb-1.5 -mt-1.5">
@@ -193,7 +193,7 @@ export default function SignupComponent() {
               {...register("password")} // Now all inputs are connected to React Hook Form
               type="password" // changed from text to password
               placeholder="Password"
-              className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-lg outline-none text-gray-100 my-3"
+              className="w-full px-4 py-3 placeholder-text-gray-400 bg-dark-3 rounded-3xl outline-none text-gray-100 my-3"
             />
             {errors.password && (
               <p className="text-red-700 text-sm mb-1.5 -mt-1.5">
@@ -203,7 +203,7 @@ export default function SignupComponent() {
 
             <button
               disabled={isSubmitting} // so button disabled when it is submitting currently
-              className="bg-blue-primary w-full my-2 py-2.5 text-white rounded-lg cursor-pointer"
+              className="bg-blue-primary w-full my-2 py-2.5 text-white rounded-3xl cursor-pointer"
             >
               {isSubmitting ? "Signing up..." : "Sign up"}{" "}
               {/* using isSubmitting boolean to disable sign up button */}

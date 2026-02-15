@@ -1,7 +1,9 @@
 import React from "react";
 import { auth } from "../../../auth";
 import { redirect } from "next/navigation";
-import NavBar from "@/components/general/NavBar";
+import LeftSidebar from "@/components/general/LeftSidebar";
+import RightSidebar from "@/components/general/RightSidebar";
+
 
 // NOTE: this is better than client-side check because it could flash page first, which can be bypassed,
 //       whereas server-side here blocks before rendering
@@ -20,6 +22,7 @@ export default async function Layout({
   // any page we create will be rendered in children, protected by the layout file
   // here i'll create things like left sidebar, right sidebar, and nav bar
   return <>
-  <NavBar/>
+  <LeftSidebar/>
+  <RightSidebar/>
   {children}</>;
 }
