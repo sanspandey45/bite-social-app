@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
 import z from "zod";
+import { FaSpinner } from "react-icons/fa";
 
 // Creating Zod instance
 const LoginSchema = z.object({
@@ -106,9 +107,17 @@ export default function SignupComponent() {
             </p>
           )}
 
-          <button className="bg-blue-primary w-full my-2 py-2.5 text-white rounded-lg cursor-pointer">
-            {" "}
-            Sign in
+          <button
+            disabled={isSubmitting}
+            className="bg-blue-primary w-full my-2 py-2.5 text-white rounded-lg cursor-pointer flex items-center justify-center"
+          >
+            {isSubmitting ? (
+              <>
+                <FaSpinner className="animate-spin " size={18} />
+              </>
+            ) : (
+              "Sign in"
+            )}
           </button>
         </form>
 
