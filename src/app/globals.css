@@ -6,10 +6,17 @@
   --color-dark-3: #101012;
   --color-dark-4: #1f1f22;
   --color-purple-primary: #5d5fef;
-  --color-blue-primary: #4076dbea;
+  --color-blue-primary: #4076dbea; /*logo*/
   --color-cream: #fffdd0;
   --color-mypurple: #4e4197ea;
   --color-myred: #8d1313ea;
+  --color-beige: #f7f3ed;
+  --color-lightpurp: #d5dcf5;
+  --color-yellowbeige: #f5f1e8;
+}
+
+body {
+  background-color: #f7f3ed; /* your beige */
 }
 
 /* fixing issue with autofill background turning white*/

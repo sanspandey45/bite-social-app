@@ -2,14 +2,13 @@
 "use client";
 // Note: we need client side features like collapsable menu, active link highlighting, etc.
 import {
-  FaStarHalfAlt,
   FaHome,
   FaUser,
   FaSearch,
   FaCog,
   FaSignOutAlt,
-  FaUserFriends,
   FaSpinner,
+  FaUserPlus,
 } from "react-icons/fa";
 import Link from "next/link";
 import {
@@ -20,6 +19,7 @@ import {
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
+import { FaRegStar } from "react-icons/fa6";
 
 // using links to make it more organized
 const links = [
@@ -37,7 +37,7 @@ const links = [
   {
     href: "/messages",
     icon: <BiSolidMessageRounded size={21} />,
-    name: "Messagese",
+    name: "Messages",
   },
   {
     href: "/promotions",
@@ -46,18 +46,17 @@ const links = [
   },
   {
     href: "/addfriends",
-    icon: <FaUserFriends size={23} />,
+    icon: <FaUserPlus size={22} />,
     name: "Add Friends",
   },
   { href: "/profile", icon: <FaUser size={18} />, name: "Profile" },
-  { href: "/settings", icon: <FaCog size={21} />, name: "Settings" },
 ];
 
 export default function LeftSidebar() {
-  const [isSigningOut, setIsSigningOut] = useState(false);
+  const [isSigningOut, setIsSigningOut] = useState(false); // to generate spinner
 
   const handleSignout = async () => {
-    setIsSigningOut(true);
+    setIsSigningOut(true); // to generate spinner
     try {
       await signOut();
     } catch (error) {
@@ -72,16 +71,22 @@ export default function LeftSidebar() {
 
   return (
     <nav
-      className="hidden lg:flex fixed left-0 top-0 h-screen w-64 lg:w-1/5 bg-indigo-200 flex-col p-6" /* whole bar items */
+      className="hidden lg:flex fixed left-0 top-0 h-screen w-24 hover:w-64 bg-beige flex-col p-6 transition-all duration-300 group overflow-hidden border-r border-gray-300" /* whole bar items */
     >
-      <div className="flex items-center gap-3 mb-10" /* logo */>
-        <FaStarHalfAlt size={35} color="#4076dbea" />
-        <span className="text-3xl font-semibold tracking-wide text-gray-900">
+      <div
+        className="flex items-center gap-2 mb-9 whitespace-nowrap" /* logo */
+      >
+        <FaRegStar
+          size={35}
+          color="#4076dbea"
+          className="[stroke:black] [stroke-width:10px] [paint-order:stroke_fill] drop-shadow-[0_0_2px_black] flex-shrink-0"
+        />
+        <span className="text-3xl font-semibold tracking-wide text-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           Bite
         </span>
       </div>
       <ul
-        className="text-gray-900 -ml-2 mt-3 flex flex-col space-y-1 lg:space-y-2.5 2xl:space-y-4.5" /* icons and nav text */
+        className="text-gray-900 2xl:text-lg -ml-2 mt-3 flex flex-1 flex-col space-y-1 lg:space-y-1.5 2xl:space-y-4.5" /* icons and nav text */
       >
         {links.map((link) => {
           const isActive = pathname === link.href;
@@ -90,14 +95,16 @@ export default function LeftSidebar() {
           return (
             <li
               key={link.href}
-              className={isActive ? "bg-black/38 rounded-3xl text-white " : ""}
+              className={
+                isActive ? "bg-gray-400/90 rounded-3xl text-white " : ""
+              }
             >
               <Link
                 href={link.href}
                 className="flex items-center gap-4 px-4 py-3 hover:bg-dark-3 hover:text-white rounded-3xl transition-all duration-100"
               >
                 <div
-                  className="relative" /* wrapping dot and icon in div; dot's absolute position will be RELATIVE to this div */
+                  className="relative w-6 flex items-center justify-center flex-shrink-0" /* wrapping dot and icon in div; dot's absolute position will be RELATIVE to this div */
                 >
                   {link.icon}
                   {isActive /* centers circle below icon; "absolute" removes it form normal document flow so doesnt take up space/make area bigger */ && (
@@ -106,24 +113,47 @@ export default function LeftSidebar() {
                     </span>
                   )}
                 </div>
-                {link.name}
+                {/* gonna wrap the link.name in span with opacity-0 so that it doesn't show up unless hovering*/}
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  {link.name}
+                </span>
               </Link>
             </li>
           );
         })}
+
+        {/* settings right above sign out */}
+        <li className="mt-auto">
+          <Link
+            href="/settings"
+            className="flex items-center 2xl:text-lg gap-4 px-4 py-3 text-gray-900 hover:bg-dark-3 hover:text-white rounded-3xl transition-all duration-100"
+          >
+            <div className="relative w-6 flex items-center justify-center flex-shrink-0">
+              <FaCog size={21} />
+            </div>
+            <span className="text-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+              Settings
+            </span>
+          </Link>
+        </li>
       </ul>
 
       {/* sign out button; pushed to bottom; not using link because separate functionality and spacing */}
       <button
         onClick={handleSignout}
         disabled={isSigningOut}
-        className="mt-auto flex items-center -ml-2 gap-4 px-4 py-3 text-gray-900 hover:bg-dark-3 hover:text-red-800 rounded-3xl transition-all duration-85 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex items-center 2xl:text-lg -ml-2 gap-4.5 px-4 py-3 text-gray-900 hover:bg-dark-3 hover:text-red-800 rounded-3xl transition-all duration-100 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        <FaSignOutAlt size={22} />
-        {isSigningOut ? (
-          <FaSpinner size={22} className="animate-spin" />
-        ) : ""}
-        {isSigningOut ? "" : "Sign Out"}
+        <div className="w-6 flex items-center justify-center flex-shrink-0">
+          <FaSignOutAlt size={22} />
+        </div>
+        <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+          {isSigningOut ? (
+            <FaSpinner size={22} className="animate-spin" />
+          ) : (
+            "Sign Out"
+          )}
+        </span>
       </button>
     </nav>
   );
@@ -185,13 +215,13 @@ export default function LeftSidebar() {
 //           <span className="text-md">Messages</span>
 //         </Link>
 
-//         <Link
-//           href="/promotions"
-//           className="flex items-center gap-4 px-4 py-3 text-gray-900 hover:bg-dark-3 hover:text-white rounded-3xl transition-all"
-//         >
-//           <BiSolidPurchaseTag size={22} />
-//           <span className="text-md">Promotions</span>
-//         </Link>
+// <Link
+//   href="/promotions"
+//   className="flex items-center gap-4 px-4 py-3 text-gray-900 hover:bg-dark-3 hover:text-white rounded-3xl transition-all"
+// >
+//   <BiSolidPurchaseTag size={22} />
+//   <span className="text-md">Promotions</span>
+// </Link>
 
 //         <Link
 //           href="/addfriends"

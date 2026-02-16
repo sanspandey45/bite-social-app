@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { FaStarHalfAlt } from "react-icons/fa";
+import { FaRegStar } from "react-icons/fa6";
 import { BiErrorCircle } from "react-icons/bi";
 import z from "zod";
 import { FaSpinner } from "react-icons/fa";
@@ -62,15 +62,15 @@ export default function SignupComponent() {
     <div className="h-screen flex justify-center items-center bg-rose-100">
       <div className="max-w-[320px] w-[90%]">
         {/* logo */}
-        <div className="flex items-center gap-2 justify-center mb-4">
-          <FaStarHalfAlt size={40} color="#4076dbea" />
-          <span className="text-3xl font-semibold tracking-wide text-gray-900">
+        <div className="flex items-center gap-2 justify-center mb-3.5">
+          <FaRegStar size={45} color="#4076dbea" className="[stroke:black] [stroke-width:10px] [paint-order:stroke_fill] drop-shadow-[0_0_2px_black]"/>
+          <span className="text-4xl font-semibold tracking-wide text-gray-900">
             Bite
           </span>
         </div>
 
         {/* heading */}
-        <h2 className="text-center text-xl mb-15 text-gray-600">
+        <h2 className="text-center text-xl mb-15 text-gray-700">
           Sign in to your account
         </h2>
         <p className="text-gray-500 text-center text-sm"></p>

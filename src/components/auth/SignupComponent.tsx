@@ -6,10 +6,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { FaStarHalfAlt } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
 import { motion } from "framer-motion";
 import z from "zod";
+import { FaRegStar } from "react-icons/fa6";
 
 const registerSchema = z.object({
   name: z.string().min(2, "* Name is required"),
@@ -83,7 +83,7 @@ export default function SignupComponent() {
     <div className="flex h-screen">
       {/* Left side - Logo & Message */}
       <motion.div
-        className="w-1/3 relative bg-rose-100 flex flex-col items-center justify-center border-r border-blue-primary"
+        className="w-1/3 relative bg-rose-100 flex flex-col items-center justify-center border-r border-gray-300"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
@@ -112,7 +112,7 @@ export default function SignupComponent() {
 
       {/* Right side of screen - Signup Form */}
       <motion.div
-        className="w-2/3 bg-indigo-200 flex items-center"
+        className="w-2/3 bg-lightpurp flex items-center"
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -125,8 +125,8 @@ export default function SignupComponent() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.5 }}
           >
-            <FaStarHalfAlt size={40} color="#4076dbea" />
-            <span className="text-3xl font-semibold tracking-wide text-gray-900">
+            <FaRegStar size={45} color="#4076dbea" className="[stroke:black] [stroke-width:10px] [paint-order:stroke_fill] drop-shadow-[0_0_2px_black]"/>
+            <span className="text-4xl font-semibold tracking-wide text-gray-900">
               Bite
             </span>
           </motion.div>

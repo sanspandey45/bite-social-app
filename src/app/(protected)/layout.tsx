@@ -4,9 +4,8 @@ import { redirect } from "next/navigation";
 import LeftSidebar from "@/components/general/LeftSidebar";
 import RightSidebar from "@/components/general/RightSidebar";
 
-
-// NOTE: this is better than client-side check because it could flash page first, which can be bypassed,
-//       whereas server-side here blocks before rendering
+// NOTE: auth session checking is better handled in server than client-side check because it could flash page first,
+//       which can be bypassed, whereas server-side here blocks before rendering
 
 // async function because we want to use our next auth session in here
 export default async function Layout({
@@ -15,14 +14,19 @@ export default async function Layout({
   const session = await auth();
 
   // adding the ? as an extra check for edge case where session obj is corrupted or empty with no user data (rare)
-  if (!session?.user) { 
+  if (!session?.user) {
     redirect("/"); // redirecting to sign in page
   }
 
-  // any page we create will be rendered in children, protected by the layout file
+  // every page we create will be rendered in children, protected by the layout file
   // here i'll create things like left sidebar, right sidebar, and nav bar
-  return <>
-  <LeftSidebar/>
-  <RightSidebar/>
-  {children}</>;
+  return (
+    <>
+      <LeftSidebar />
+      <div className = "min-h-screen mx-5 lg:ml-79 lg:mr-105 text-gray-900 mt-6"> {/* will contain global styles applied to all the protected pages*/}
+        {children}
+      </div>
+      <RightSidebar />
+    </>
+  );
 }
