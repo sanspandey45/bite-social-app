@@ -6,6 +6,7 @@ import { BsSendFill } from "react-icons/bs";
 import { IoMdPhotos } from "react-icons/io";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
 import { useState } from "react";
+import { BiSolidBookmark } from "react-icons/bi";
 
 export default function CreatePostInput() {
   const [isPosting, setIsPosting] = useState(false);
@@ -39,6 +40,11 @@ export default function CreatePostInput() {
             <button className="text-green-600/50 hover:text-green-600 flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">
               <IoMdPhotos size={25} />
               <span className="text-sm text-gray-800"> Photo </span>
+            </button>
+            {/* Save to list button */}
+            <button className="text-purple-400/50 hover:text-purple-400/85 flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">
+              <BiSolidBookmark size={25} />
+              <span className="text-sm text-gray-800"> Save </span>
             </button>
             {/* Emoji button */}
             <button className="text-yellow-600/50 hover:text-yellow-600 flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">

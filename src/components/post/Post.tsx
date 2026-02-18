@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { BsFire } from "react-icons/bs";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaRegComment, FaRegHeart } from "react-icons/fa6";
 
@@ -59,13 +60,18 @@ export default function Post() {
           {/* like button */}
           <button className="text-gray-600/80 cursor-pointer flex item-center gap-1.25 hover:text-gray-800">
             <FaRegHeart size={21} />
-            <span className="text-sm text-gray-800 mt-0.5">67</span>
+            <span className="text-sm text-gray-800 mt-0.5">41</span>
+          </button>
+          {/* fire button */}
+          <button className="text-gray-600/80 cursor-pointer flex item-center gap-1.25 hover:text-gray-800">
+            <BsFire size={21} />
+            <span className="text-sm text-gray-800 mt-0.5">21</span>
           </button>
           {/* comment button */}
           <Link href="/post/......">
             <button className="text-gray-600/80 cursor-pointer flex item-center gap-1.25 hover:text-gray-800">
               <FaRegComment size={21} />
-              <span className="text-sm text-gray-800 mt-0.5">41</span>
+              <span className="text-sm text-gray-800 mt-0.5">12</span>
             </button>
           </Link>
         </div>

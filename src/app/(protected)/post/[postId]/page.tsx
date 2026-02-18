@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaRegTrashAlt, FaRegComment, FaRegHeart } from "react-icons/fa";
+import { FaRegTrashAlt, FaRegComment, FaRegHeart, } from "react-icons/fa";
 import CommentInput from '@/components/comment/CommentInput'
 import Comments from "@/components/comment/Comments";
+import { BsFire } from "react-icons/bs";
 
 export default function PostViewPage() {
   return (
@@ -49,22 +50,29 @@ export default function PostViewPage() {
         </div>
       </Link>
 
-      <div className="mt-4 mx-1 flex gap-6.5">
-        {/* like button */}
-        <button className="text-gray-600/80 cursor-pointer flex item-center gap-1.25 hover:text-gray-800">
-            <FaRegHeart size={21}/>
-            <span className="text-sm text-gray-800 mt-0.5">67</span>
-        </button>
-        {/* comment button */}
-        <Link href="/post/......">
+      <div className="mt-4 mx-1 flex justify-between">
+        <div className="flex gap-6.5 ">
+          {/* like button */}
           <button className="text-gray-600/80 cursor-pointer flex item-center gap-1.25 hover:text-gray-800">
-              <FaRegComment size={21}/>
-              <span className="text-sm text-gray-800 mt-0.5">41</span>
+            <FaRegHeart size={21} />
+            <span className="text-sm text-gray-800 mt-0.5">41</span>
           </button>
-        </Link>
+          {/* fire button */}
+          <button className="text-gray-600/80 cursor-pointer flex item-center gap-1.25 hover:text-gray-800">
+            <BsFire size={21} />
+            <span className="text-sm text-gray-800 mt-0.5">21</span>
+          </button>
+          {/* comment button */}
+          <Link href="/post/......">
+            <button className="text-gray-600/80 cursor-pointer flex item-center gap-1.25 hover:text-gray-800">
+              <FaRegComment size={21} />
+              <span className="text-sm text-gray-800 mt-0.5">12</span>
+            </button>
+          </Link>
+        </div>
         {/* delete button */}
-        <button className="text-gray-600/90 cursor-pointer flex item-center gap-1 hover:text-gray-800">
-            <FaRegTrashAlt size={20}/>
+        <button className="text-gray-600/90 cursor-pointer flex item-center hover:text-gray-800">
+          <FaRegTrashAlt size={20} />
         </button>
       </div>
     </div>

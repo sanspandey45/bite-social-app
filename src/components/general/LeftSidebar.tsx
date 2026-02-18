@@ -15,6 +15,7 @@ import {
   BiSolidBell,
   BiSolidMessageRounded,
   BiSolidPurchaseTag,
+  BiSolidBookmark,
 } from "react-icons/bi";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
@@ -45,8 +46,13 @@ const links = [
     name: "Promotions",
   },
   {
+    href: "/savedlists",
+    icon: <BiSolidBookmark size={22} />,
+    name: "All Saved Lists",
+  },
+  {
     href: "/addfriends",
-    icon: <FaUserPlus size={22} />,
+    icon: <FaUserPlus size={22} className="ml-1"/>,
     name: "Add Friends",
   },
   { href: "/profile", icon: <FaUser size={18} />, name: "Profile" },

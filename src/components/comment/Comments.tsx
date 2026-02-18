@@ -19,14 +19,14 @@ export default function Comments() {
           />
         </div>
         <div>
-          <p className="-mt-1 -mb-1">Jane Doe</p>
+          <p className="-mt-1 -mb-1">John Stevens</p>
           <div>
             <span className="mr-2 text-sm font-normal text-gray-400">
               {" "}
-              {/* username */} @janedoe
+              {/* username */} @johns
             </span>
             <span className="text-blue-primary text-sm font-semibold">
-              2h ago
+              1h ago
             </span>
           </div>
         </div>
