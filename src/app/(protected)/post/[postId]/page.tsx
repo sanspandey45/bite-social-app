@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { FaRegTrashAlt, FaRegComment, FaRegHeart } from "react-icons/fa";
 import CommentInput from '@/components/comment/CommentInput'
+import Comments from "@/components/comment/Comments";
 
 export default function PostViewPage() {
   return (
@@ -70,6 +71,9 @@ export default function PostViewPage() {
 
       {/* comment input */}
       <CommentInput/>
+
+      {/* comments */}
+      <Comments/>
       </>
   )
 }

@@ -5,12 +5,15 @@ import React from "react";
 import { BsSendFill } from "react-icons/bs";
 import { IoMdPhotos } from "react-icons/io";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
+import { useState } from "react";
 
 export default function CreatePostInput() {
+  const [isPosting, setIsPosting] = useState(false);
+
   return (
     <div className="bg-white p-4 rounded-3xl border border-gray-300">
       <div className="flex gap-2">
-        <div className="relative w-13 h-13 shrink-0 cursor-pointer">
+        <div className="relative w-15 h-15 shrink-0 cursor-pointer">
           <Image
             src="/images/profile.jpg"
             fill
@@ -23,7 +26,11 @@ export default function CreatePostInput() {
           {/* text bubble area where user's can write, initially only this is visible until user clicks */}
           <textarea
             placeholder="Post a new review..."
-            className="bg-gray-300/80 w-full p-1 pt-3 pl-5 pr-5 rounded-full outline-none resize-none"
+            onFocus={() => setIsPosting(true)}
+            onBlur={() => setIsPosting(false)}
+            className={`w-full pt-3 pl-5 pr-5 rounded-full outline-none resize-none ${
+              isPosting ? 'bg-gray-400/50' : 'bg-gray-300/80'
+            }`}
           />
           {/* Any buttons in the post area */}
           <div className="mt-2 flex gap-3">
