@@ -23,7 +23,7 @@ export default async function Layout({
   return (
     <>
       <LeftSidebar />
-      <div className = "min-h-screen mx-5 lg:ml-79 lg:mr-105 text-gray-900 mt-6"> {/* will contain global styles applied to all the protected pages*/}
+      <div className = "min-h-screen mx-5 lg:ml-79 lg:mr-105 2xl:ml-120 2xl:mr-150 text-gray-900 mt-6"> {/* will contain global styles applied to all the protected pages*/}
         {children}
       </div>
       <RightSidebar />

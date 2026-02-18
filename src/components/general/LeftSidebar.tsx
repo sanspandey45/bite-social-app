@@ -71,7 +71,7 @@ export default function LeftSidebar() {
 
   return (
     <nav
-      className="hidden lg:flex fixed left-0 top-0 h-screen w-24 hover:w-64 bg-beige flex-col p-6 transition-all duration-300 group overflow-hidden border-r border-gray-300" /* whole bar items */
+      className="hidden lg:flex fixed left-0 top-0 h-screen w-24 hover:w-64 bg-beige flex-col p-6 transition-all duration-150 group overflow-hidden border-r border-gray-300" /* whole bar items */
     >
       <div
         className="flex items-center gap-2 mb-9 whitespace-nowrap" /* logo */
@@ -81,7 +81,7 @@ export default function LeftSidebar() {
           color="#4076dbea"
           className="[stroke:black] [stroke-width:10px] [paint-order:stroke_fill] drop-shadow-[0_0_2px_black] flex-shrink-0"
         />
-        <span className="text-3xl font-semibold tracking-wide text-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <span className="text-3xl font-semibold tracking-widest text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
           Bite
         </span>
       </div>
@@ -142,7 +142,7 @@ export default function LeftSidebar() {
       <button
         onClick={handleSignout}
         disabled={isSigningOut}
-        className="flex items-center 2xl:text-lg -ml-2 gap-4.5 px-4 py-3 text-gray-900 hover:bg-dark-3 hover:text-red-800 rounded-3xl transition-all duration-100 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex items-center 2xl:text-lg -ml-2 gap-4.5 px-4 py-3 text-gray-900 hover:bg-dark-3 hover:text-red-500 rounded-3xl transition-all duration-100 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <div className="w-6 flex items-center justify-center flex-shrink-0">
           <FaSignOutAlt size={22} />
