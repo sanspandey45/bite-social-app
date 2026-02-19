@@ -10,7 +10,7 @@ export default function PostViewPage() {
   return (
     // will store the jsx of the post component
     <>
-    <div className="bg-white p-6 rounded-3xl border border-gray-300">
+    <div className="bg-white p-6 rounded-3xl border border-gray-300 shadow-xl">
       {" "}
       {/* uploaded post box */}
       <div className="flex gap-2.5 items-center">

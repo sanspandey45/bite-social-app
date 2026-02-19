@@ -31,6 +31,11 @@ const links = [
     name: "Discover Spots",
   },
   {
+    href: "/savedlists",
+    icon: <BiSolidBookmark size={22} />,
+    name: "All Saved Lists",
+  },
+  {
     href: "/notifications",
     icon: <BiSolidBell size={21} />,
     name: "Notifications",
@@ -46,13 +51,8 @@ const links = [
     name: "Promotions",
   },
   {
-    href: "/savedlists",
-    icon: <BiSolidBookmark size={22} />,
-    name: "All Saved Lists",
-  },
-  {
     href: "/addfriends",
-    icon: <FaUserPlus size={22} className="ml-1"/>,
+    icon: <FaUserPlus size={22} className="ml-1" />,
     name: "Add Friends",
   },
   { href: "/profile", icon: <FaUser size={18} />, name: "Profile" },
@@ -77,7 +77,7 @@ export default function LeftSidebar() {
 
   return (
     <nav
-      className="hidden lg:flex fixed left-0 top-0 h-screen w-24 hover:w-64 bg-beige flex-col p-6 transition-all duration-150 group overflow-hidden border-r border-gray-300" /* whole bar items */
+      className="hidden lg:flex fixed left-0 top-0 h-screen w-24 hover:w-64 bg-white flex-col p-6 transition-all duration-150 group overflow-hidden border-r border-gray-300/60 shadow-2xl" /* whole bar items */
     >
       <div
         className="flex items-center gap-2 mb-9 whitespace-nowrap" /* logo */

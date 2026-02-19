@@ -90,23 +90,32 @@ export default function SignupComponent() {
       >
         {/* logo
         <FaStarHalfAlt size={50} color="black" className="mb-5" /> */}
-        <motion.h1
+        <motion.div
+            className="flex items-center gap-2 mb-4"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+          >
+            <FaRegStar size={45} color="#4076dbea" className="[stroke:black] [stroke-width:10px] [paint-order:stroke_fill] drop-shadow-[0_0_2px_black]"/>
+            <span className="text-4xl font-semibold tracking-widest text-gray-800">
+              Bite
+            </span>
+          </motion.div>
+        {/* <motion.h1
           className="text-4xl font-bold text-blue-primary mb-4"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.5 }}
         >
           <p> Create an account </p>
-        </motion.h1>
+        </motion.h1> */}
         <motion.p
-          className="text-lg text-black font-semibold text-center px-11"
+          className="text-lg text-black text-center px-11"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          Join the best platform for <span className="text-black">saving</span>{" "}
-          and <span className="text-black">sharing</span> your{" "}
-          <span className="text-black">bites</span>.
+          Your own dining diary.
         </motion.p>
       </motion.div>
 
@@ -119,7 +128,15 @@ export default function SignupComponent() {
       >
         <div className="max-w-[320px] w-[90%] ml-20">
           {/* logo */}
-          <motion.div
+          <motion.h1
+          className="text-3xl font-bold text-gray-800 mb-2"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+        >
+          <p> Create an account </p>
+        </motion.h1>
+          {/* <motion.div
             className="flex items-center gap-2 mb-4"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -129,7 +146,7 @@ export default function SignupComponent() {
             <span className="text-4xl font-semibold tracking-widest text-gray-800">
               Bite
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* heading */}
           {/* <h2 className="text-center text-3xl font-semibold mb-3 text-gray-200">

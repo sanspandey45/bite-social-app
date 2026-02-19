@@ -8,10 +8,9 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaRegComment, FaRegHeart } from "react-icons/fa6";
 
 export default function Post() {
-  return (
-    <div className="bg-white p-5 rounded-3xl border border-gray-300">
+  return ( 
+    <div className="bg-white p-5 rounded-3xl border border-gray-300 shadow-2xl"> {/* uploaded post box */}
       {" "}
-      {/* uploaded post box */}
       <div className="flex gap-2.5 items-center">
         <div className="relative w-11 h-11 group">
           {" "}

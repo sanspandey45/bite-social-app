@@ -7,20 +7,23 @@ import { IoMdPhotos } from "react-icons/io";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
 import { useState } from "react";
 import { BiSolidBookmark } from "react-icons/bi";
+import Link from "next/link";
 
 export default function CreatePostInput() {
   const [isPosting, setIsPosting] = useState(false);
 
   return (
-    <div className="bg-white p-4 rounded-3xl border border-gray-300">
+    <div className="bg-white p-4 rounded-3xl border border-gray-300 shadow-2xl">
       <div className="flex gap-2">
         <div className="relative w-15 h-15 shrink-0 cursor-pointer">
-          <Image
-            src="/images/profile.jpg"
-            fill
-            alt="profile-pic"
-            className="object-cover rounded-full border-4 border-gray-300 hover:border-blue-primary/60"
-          />
+          <Link href="/profile">
+            <Image
+              src="/images/profile.jpg"
+              fill
+              alt="profile-pic"
+              className="object-cover rounded-full border-4 border-gray-300 hover:border-blue-primary/60"
+            />
+          </Link>
         </div>
         {/* every feature that post area has */}
         <div className="flex-1 group">
@@ -30,27 +33,29 @@ export default function CreatePostInput() {
             onFocus={() => setIsPosting(true)}
             onBlur={() => setIsPosting(false)}
             className={`w-full pt-3 pl-5 pr-5 rounded-full outline-none resize-none ${
-              isPosting ? 'bg-gray-400/50' : 'bg-gray-300/80'
+              isPosting ? "bg-gray-400/50" : "bg-gray-300/80"
             }`}
           />
           {/* Any buttons in the post area */}
-          <div className="mt-2 flex gap-3">
+          <div className="mt-2 flex justify-between">
             {" "}
             {/* Photo button */}
-            <button className="text-green-600/50 hover:text-green-600 flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">
-              <IoMdPhotos size={25} />
-              <span className="text-sm text-gray-800"> Photo </span>
-            </button>
-            {/* Save to list button */}
-            <button className="text-purple-400/50 hover:text-purple-400/85 flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">
-              <BiSolidBookmark size={25} />
-              <span className="text-sm text-gray-800"> Save </span>
-            </button>
-            {/* Emoji button */}
-            <button className="text-yellow-600/50 hover:text-yellow-600 flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">
-              <MdOutlineEmojiEmotions size={25} />
-              <span className="text-sm text-gray-800"> Emoji </span>
-            </button>
+            <div className="flex gap-3">
+              <button className="text-green-600/50 hover:text-green-600 flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">
+                <IoMdPhotos size={25} />
+                <span className="text-sm text-gray-800"> Photo </span>
+              </button>
+              {/* Emoji button */}
+              <button className="text-yellow-600/50 hover:text-yellow-600 flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">
+                <MdOutlineEmojiEmotions size={25} />
+                <span className="text-sm text-gray-800"> Emoji </span>
+              </button>
+              {/* Save to list button */}
+              <button className="text-purple-400/50 hover:text-purple-400/85 flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">
+                <BiSolidBookmark size={25} />
+                <span className="text-sm text-gray-800"> Save </span>
+              </button>
+            </div>
             {/* Post button */}
             <button className="text-gray-500/70 hover:text-blue-primary flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">
               <BsSendFill size={22} />
