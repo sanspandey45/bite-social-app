@@ -69,15 +69,15 @@ export default function ProfilePage() {
             </span>
           </p>
           <div>
-            <label className="mt-7 block text-sm text-gray-500/80 font-semibold">
+            <label className="mt-7 block text-sm text-gray-500/70">
               Bio
             </label>
             <p className="mt-.5 text-sm text-gray-700">{user?.bio || ""}</p>
-            <label className="mt-6 block text-sm text-gray-500/80 font-semibold">
+            <label className="mt-6 block text-sm text-gray-500/70">
               Favorite Cuisines
             </label>
             <p className="mt-.5 text-sm text-gray-700">{user?.favCuisines}</p>
-            <label className="mt-6 block text-sm text-gray-500/80 font-semibold">
+            <label className="mt-6 block text-sm text-gray-500/70">
               Favorite Spots
             </label>
             {user?.favSpots

@@ -156,24 +156,6 @@ export default function EditProfileModal({
     });
   };
 
-  // const imageFile = data.image?.[0]; // Extract file from FileList
-
-  // console.log("All form data:", data);
-  // console.log("Image file:", imageFile);
-
-  // if (imageFile) {
-  //   console.log("File details:", {
-  //     name: imageFile.name,
-  //     size: imageFile.size,
-  //     type: imageFile.type,
-  //   });
-  // } else {
-  //   console.log("No image selected");
-  // }
-
-  // reset(); // Reset form
-  // handleClose();
-
   const handleClose = () => {
     reset(); // Reset form
     setIsModalOpen(false); // Then close
@@ -182,8 +164,8 @@ export default function EditProfileModal({
   return (
     <>
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-gray-500/20 backdrop-blur-sm flex items-center justify-center">
-          <div className="bg-beige/23 w-[90%] max-w-md rounded-4xl p-4 h-180 relative shadow-xl">
+        <div className="fixed inset-0 z-50 bg-gray-900/20 backdrop-blur-sm flex items-center justify-center">
+          <div className="bg-beige/30 w-[90%] max-w-md rounded-4xl p-4 h-180 relative shadow-xl">
             {/* close button */}
             <button
               onClick={handleClose}
@@ -229,7 +211,7 @@ export default function EditProfileModal({
                 <input
                   {...register("image")} // connecting our form to react hook form
                   type="file"
-                  className="text-sm w-full py-3 px-4 placeholder-gray-300 bg-white/40 rounded-full cursor-pointer mb-3 "
+                  className="text-sm w-full py-3 px-4 placeholder-gray-300 bg-white/90 rounded-full cursor-pointer mb-3 "
                 />
               </div>
               {/* Name */}
@@ -249,7 +231,7 @@ export default function EditProfileModal({
                 <input
                   {...register("name")}
                   type="text"
-                  className="text-sm w-full py-2 px-4 placeholder-gray-400 bg-white/40 rounded-full mb-3.5 outline-none"
+                  className="text-sm w-full py-2 px-4 placeholder-gray-400 bg-white/90 rounded-full mb-3.5 outline-none"
                 />
               </div>
               {/* Email Address */}
@@ -269,7 +251,7 @@ export default function EditProfileModal({
                 <input
                   {...register("email")}
                   type="text"
-                  className="text-sm w-full py-2 px-4 placeholder-gray-400 bg-white/40 rounded-full mb-3.5 outline-none"
+                  className="text-sm w-full py-2 px-4 placeholder-gray-400 bg-white/90 rounded-full mb-3.5 outline-none"
                 />
               </div>
               {/* Username */}
@@ -286,7 +268,7 @@ export default function EditProfileModal({
                     </p>
                   )}
                 </label>
-                <div className="flex items-center w-full py-2 px-4 bg-white/40 rounded-full mb-3.5 outline-none">
+                <div className="flex items-center w-full py-2 px-4 bg-white/90 rounded-full mb-3.5 outline-none">
                   <span className="text-gray-400 select-none">@</span>
                   <input
                     {...register("username")}
@@ -298,7 +280,7 @@ export default function EditProfileModal({
               {/* Bio */}
               {/* <div>
                 <label className="text-gray-800">Bio</label>
-                <textarea className="w-full py-1 px-4 placeholder-gray-400 bg-white/40 rounded-full text-gray-100 resize-none mb-3 outline-gray-400"></textarea>
+                <textarea className="w-full py-1 px-4 placeholder-gray-400 bg-white/90 rounded-full text-gray-100 resize-none mb-3 outline-gray-400"></textarea>
               </div> */}
               {/* Fav Cuisines */}
               <div>
@@ -317,7 +299,7 @@ export default function EditProfileModal({
                 <input
                   {...register("bio")}
                   type="text"
-                  className="w-full text-sm py-2 px-4 placeholder-gray-400 bg-white/40 rounded-full mb-3.5 outline-none"
+                  className="w-full text-sm py-2 px-4 placeholder-gray-400 bg-white/90 rounded-full mb-3.5 outline-none"
                 />
               </div>
               <div>
@@ -337,7 +319,7 @@ export default function EditProfileModal({
                   {...register("favCuisines")}
                   type="text"
                   placeholder="ex: Italian, Japanese"
-                  className="text-sm w-full py-2 px-4 placeholder-gray-400 bg-white/40 rounded-full mb-3.5 outline-none"
+                  className="text-sm w-full py-2 px-4 placeholder-gray-400 bg-white/90 rounded-full mb-3.5 outline-none"
                 />
               </div>
               {/* Fav Spots */}
@@ -358,7 +340,7 @@ export default function EditProfileModal({
                   {[0, 1, 2].map((index) => (
                     <div
                       key={index}
-                      className="flex items-center w-full py-2 px-4 bg-white/40 rounded-full outline-white"
+                      className="flex items-center w-full py-2 px-4 bg-white/90 rounded-full outline-white"
                     >
                       <span className="text-gray-400 select-none mr-2">
                         {index + 1}.

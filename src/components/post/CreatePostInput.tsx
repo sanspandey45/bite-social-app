@@ -13,7 +13,7 @@ export default function CreatePostInput() {
   const [isPosting, setIsPosting] = useState(false);
 
   return (
-    <div className="bg-white p-4 rounded-3xl border border-gray-300 shadow-2xl">
+    <div className="bg-white p-4 rounded-2xl border border-gray-300 shadow-xl">
       <div className="flex gap-2">
         <div className="relative w-15 h-15 shrink-0 cursor-pointer">
           <Link href="/profile">
