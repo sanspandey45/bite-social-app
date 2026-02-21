@@ -41,7 +41,7 @@ export default function Comments() {
 
       <div className="mx-1 flex gap-6.5 flex justify-end">
         {/* delete button */}
-        <button className="text-gray-600/90 cursor-pointer flex item-center gap-1 hover:text-gray-800">
+        <button className="text-gray-600/75 cursor-pointer flex item-center gap-1 hover:text-gray-700">
           <FaRegTrashAlt size={20} />
         </button>
       </div>

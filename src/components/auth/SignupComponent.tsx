@@ -12,7 +12,7 @@ import z from "zod";
 import { FaRegStar } from "react-icons/fa6";
 
 const registerSchema = z.object({
-  name: z.string().min(2, "* Name is required"),
+  name: z.string().optional(),
   email: z.email("* Invalid email address"),
   username: z.string().min(3, "* Username must be at least 3 characters"),
   password: z.string().min(6, "* Password must be at least 6 characters"),
@@ -96,8 +96,8 @@ export default function SignupComponent() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.5 }}
           >
-            <FaRegStar size={45} color="#4076dbea" className="[stroke:black] [stroke-width:10px] [paint-order:stroke_fill] drop-shadow-[0_0_2px_black]"/>
-            <span className="text-4xl font-semibold tracking-widest text-gray-800">
+            <FaRegStar size={55} color="#4076dbea" className="[stroke:black] [stroke-width:10px] [paint-order:stroke_fill] drop-shadow-[0_0_2px_black]"/>
+            <span className="text-4xl font-bold tracking-widest text-gray-800">
               Bite
             </span>
           </motion.div>
@@ -129,7 +129,7 @@ export default function SignupComponent() {
         <div className="max-w-[320px] w-[90%] ml-20">
           {/* logo */}
           <motion.h1
-          className="text-3xl font-bold text-gray-800 mb-2"
+          className="text-4xl font-bold text-gray-800 mb-2"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.5 }}

@@ -21,7 +21,7 @@ export default function CreatePostInput() {
               src="/images/profile.jpg"
               fill
               alt="profile-pic"
-              className="object-cover rounded-full border-4 border-gray-300 hover:border-blue-primary/60"
+              className="object-cover rounded-full border-4 border-gray-300 hover:border-blue-primary/60 transition"
             />
           </Link>
         </div>
@@ -33,14 +33,14 @@ export default function CreatePostInput() {
             onFocus={() => setIsPosting(true)}
             onBlur={() => setIsPosting(false)}
             className={`w-full pt-3 pl-5 pr-5 rounded-full outline-none resize-none ${
-              isPosting ? "bg-gray-400/50" : "bg-gray-300/80"
+              isPosting ? "bg-gray-400/50 border border-blue-primary/36" : "bg-gray-300/80"
             }`}
           />
           {/* Any buttons in the post area */}
           <div className="mt-2 flex justify-between">
             {" "}
             {/* Photo button */}
-            <div className="flex gap-3">
+            <div className="flex gap-1.5">
               <button className="text-green-600/50 hover:text-green-600 flex items-center bg-gray-300/80 hover:bg-gray-300 px-4 py-2 gap-2 rounded-3xl cursor-pointer">
                 <IoMdPhotos size={25} />
                 <span className="text-sm text-gray-800"> Photo </span>

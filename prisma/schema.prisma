@@ -16,12 +16,14 @@ datasource db {
 model User{
   // Means ID is automatically generated and is the primary key, mapped to MongoDB's _id field
   id            String   @id @default(auto()) @map("_id") @db.ObjectId 
-  name          String
+  name          String?
   username      String   @unique
   email         String   @unique
   password      String
   bio           String? // Question mark for optional
   image         String? // URL to profile picture, optional
+  favCuisines   String? // Will change to array later? and need to update it in EditProfileModal.tsx as well
+  favSpots      String[]
   imagePublicId String? // For storing Cloudinary public ID, also optional
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt

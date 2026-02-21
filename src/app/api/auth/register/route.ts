@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import prisma from "./lib/prisma";
+import prisma from "../../../../lib/prisma";
 import { hash } from "bcryptjs";
 
 export async function POST(req: Request) {
@@ -33,13 +33,6 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { error: "Email or username already exists" },
         { status: 409 },
-      );
-    }
-
-    if (existingUser) {
-      return NextResponse.json(
-        { error: "Email or username already exists" },
-        { status: 400 },
       );
     }
 

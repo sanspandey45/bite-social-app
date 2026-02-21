@@ -19,7 +19,7 @@ export default function Post() {
             src="/images/profile.jpg"
             fill
             alt="profile-pic"
-            className="object-cover rounded-full border-4 border-gray-300 shrink-0 hover:border-blue-primary/60 cursor-pointer"
+            className="object-cover rounded-full border-4 border-gray-300 shrink-0 hover:border-blue-primary/60 transition cursor-pointer"
           />
         </div>
         <div>
@@ -38,14 +38,14 @@ export default function Post() {
       <Link href="/post/......">
         {" "}
         {/* will link to user's profile when clicking on their post */}
-        <p className="py-4 text-gray-800 text-sm">
+        <p className="py-4 text-gray-900 text-sm">
           {" "}
           {/* caption */} Lorem ipsum dolor, sit amet consectetur adipisicing
           elit. Totam commodi laudantium odit deleniti rerum doloremque error,
           aut atque incidunt eligendi quibusdam ipsam deserunt, ipsa vitae
           nobis, in corporis molestias nihil.
         </p>
-        <div className="relative w-full h-80 sm:h-100 md:h-120">
+        <div className="relative w-80 h-80 sm:h-100 sm:w-100 md:h-110 md:w-full border border-gray-300">
           <Image
             src="/images/profile.jpg"
             alt="profile-pic"
@@ -57,26 +57,26 @@ export default function Post() {
       <div className="mt-4 mx-1 flex justify-between">
         <div className="flex gap-6.5 ">
           {/* like button */}
-          <button className="text-gray-600/80 cursor-pointer flex item-center gap-1.25 hover:text-gray-800">
-            <FaRegHeart size={21} />
-            <span className="text-sm text-gray-800 mt-0.5">41</span>
+          <button className="text-gray-600/75 cursor-pointer flex item-center gap-1.25 hover:text-gray-700">
+            <FaRegHeart size={28} />
+            <span className="text-md text-gray-900 mt-0.5">41</span>
           </button>
           {/* fire button */}
-          <button className="text-gray-600/80 cursor-pointer flex item-center gap-1.25 hover:text-gray-800">
-            <BsFire size={21} />
-            <span className="text-sm text-gray-800 mt-0.5">21</span>
+          <button className="text-gray-600/75 cursor-pointer flex item-center gap-1.25 hover:text-gray-700">
+            <BsFire size={28} />
+            <span className="text-md text-gray-900 mt-0.5">21</span>
           </button>
           {/* comment button */}
           <Link href="/post/......">
-            <button className="text-gray-600/80 cursor-pointer flex item-center gap-1.25 hover:text-gray-800">
-              <FaRegComment size={21} />
-              <span className="text-sm text-gray-800 mt-0.5">12</span>
+            <button className="text-gray-600/75 cursor-pointer flex item-center gap-1.25 hover:text-gray-700">
+              <FaRegComment size={28} />
+              <span className="text-md text-gray-900 mt-0.5">12</span>
             </button>
           </Link>
         </div>
         {/* delete button */}
-        <button className="text-gray-600/90 cursor-pointer flex item-center hover:text-gray-800">
-          <FaRegTrashAlt size={20} />
+        <button className="text-gray-600/75 cursor-pointer flex item-center hover:text-gray-700">
+          <FaRegTrashAlt size={21} />
         </button>
       </div>
     </div>

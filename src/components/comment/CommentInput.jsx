@@ -31,7 +31,7 @@ export default function CommentInput() {
             onFocus={() => setIsExpanded(true)}
             onBlur={() => setIsExpanded(false)}
             className={`flex w-full p-3 pl-5 pr-5 rounded-3xl outline-none transition-colors ${
-              isExpanded ? 'bg-gray-400/50' : 'bg-gray-300/80'
+              isExpanded ? 'bg-gray-400/50 border border-blue-primary/36' : 'bg-gray-300/80'
             }`}
           />
 

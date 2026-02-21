@@ -10,13 +10,13 @@
   --color-cream: #fffdd0;
   --color-mypurple: #4e4197ea;
   --color-myred: #8d1313ea;
-  --color-beige: #f7f3ed;
+  --color-beige: #fffffe;
   --color-lightpurp: #d5dcf5;
   --color-yellowbeige: #f5f1e8;
 }
 
 body {
-  background-color: #f7f3ed; /* your beige */
+  background-color: #fffffe; /* your beige */
 }
 
 /* fixing issue with autofill background turning white*/
