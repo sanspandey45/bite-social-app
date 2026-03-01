@@ -59,7 +59,7 @@ export default function SignupComponent() {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center bg-rose-100">
+    <div className="h-screen flex justify-center items-center bg-rose-100/5">
       <div className="max-w-[320px] w-[90%]">
         {/* logo */}
         <div className="flex items-center gap-2 justify-center mb-3.5">

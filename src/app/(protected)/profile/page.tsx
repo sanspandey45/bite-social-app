@@ -21,7 +21,7 @@ export default function ProfilePage() {
         setIsModalOpen={setIsModalOpen}
         user={user} // passing user as a prop
       />
-      <div className="bg-white p-5.5 rounded-3xl border border-gray-300">
+      <div className="bg-white p-5.5 rounded-3xl border border-gray-300 shadow-xl">
         {/* Everything in top bar */}
         <div className="flex items-center justify-between gap-4">
           {/* Profile Picture */}
@@ -30,7 +30,7 @@ export default function ProfilePage() {
               src={user?.image || "/images/profile.jpg"}
               alt="profile-pic"
               fill
-              className="object-cover rounded-full border-5 border-gray-300 transition"
+              className="object-cover rounded-full border-1 border-gray-500 transition"
             />
           </div>
 
@@ -61,7 +61,7 @@ export default function ProfilePage() {
 
         <div className="mt-4.5 text-gray-800">
           <p className="text-2xl font-bold">{user?.name || ""}</p>
-          <p className="text-md text-gray-500">{user?.username}</p>
+          <p className="text-md text-gray-500">@{user?.username}</p>
           <p className="flex mt-3 gap-1 items-center">
             <BiCalendar size={16} className="text-blue-primary" />
             <span className="text-gray-600/90 text-xs">

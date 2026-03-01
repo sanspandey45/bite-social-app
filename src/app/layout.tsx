@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import QueryProvider from "../../providers/QueryProvider";
 import { ToastContainer } from "react-toastify";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-dark-1 antialiased`}
       >
+        <ScrollToTop />
         <QueryProvider>{children}</QueryProvider>
         <ToastContainer
           position="top-center"

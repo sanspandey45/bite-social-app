@@ -28,3 +28,9 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #e5e7eb !important;
   caret-color: #e5e7eb;
 }
+
+@layer base {
+  body {
+    @apply text-gray-800; /* for unspecified text*/
+  }
+}

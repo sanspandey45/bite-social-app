@@ -76,7 +76,7 @@ export default function LeftSidebar() {
 
   return (
     <nav
-      className="hidden lg:flex fixed mt-6 lg:left-30 2xl:left-84 top-0 h-[93%] w-60 rounded-2xl bg-white flex-col p-5 transition-all duration-200 overflow-hidden border border-gray-300/60 shadow-md hover:shadow-xl " /* whole bar items */
+      className="hidden lg:flex fixed mt-6 lg:left-36 2xl:left-84 top-0 h-[93%] w-60 rounded-2xl bg-white flex-col p-5 transition-all duration-200 overflow-hidden border border-gray-300/60 shadow-md hover:shadow-xl " /* whole bar items */
     >
       <div
         className="flex items-center gap-2 mb-9 whitespace-nowrap" /* logo */
@@ -86,12 +86,12 @@ export default function LeftSidebar() {
           color="#4076dbea"
           className="[stroke:black] [stroke-width:10px] [paint-order:stroke_fill] drop-shadow-[0_0_2px_black] flex-shrink-0"
         />
-        <span className="text-3xl font-semibold tracking-widest text-gray-800 duration-150">
+        <span className="text-2xl font-semibold tracking-widest text-gray-600/95 duration-150 font-geist-mono">
           Bite
         </span>
       </div>
       <ul
-        className="text-gray-900 2xl:text-lg -ml-2 mt-3 flex flex-1 flex-col space-y-1 lg:space-y-1.5 2xl:space-y-4.5" /* icons and nav text */
+        className="text-gray-800 2xl:text-md text-sm -ml-2 mt-3 flex flex-1 flex-col space-y-1 lg:space-y-1.5 2xl:space-y-4.5" /* icons and nav text */
       >
         {links.map((link) => {
           const isActive = pathname === link.href;
@@ -101,7 +101,7 @@ export default function LeftSidebar() {
             <li
               key={link.href}
               className={
-                isActive ? "bg-gray-400/90 rounded-3xl text-white " : ""
+                isActive ? "bg-gray-400/75 rounded-3xl text-white " : ""
               }
             >
               <Link
@@ -131,7 +131,7 @@ export default function LeftSidebar() {
         <li className="mt-auto">
           <Link
             href="/settings"
-            className="flex items-center 2xl:text-lg gap-4 px-4 py-3 text-gray-900 hover:bg-dark-3 hover:text-white rounded-3xl transition-all duration-250"
+            className="flex items-center 2xl:text-md gap-4 px-4 py-3 text-gray-800 hover:bg-dark-3 hover:text-white rounded-3xl transition-all duration-250"
           >
             <div className="relative w-6 flex items-center justify-center flex-shrink-0">
               <FaCog size={21} />
@@ -147,7 +147,7 @@ export default function LeftSidebar() {
       <button
         onClick={handleSignout}
         disabled={isSigningOut}
-        className="flex items-center 2xl:text-lg -ml-2 gap-4.5 px-4 py-3 text-gray-900 hover:bg-dark-3 hover:text-red-500 rounded-3xl transition-all duration-250 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex items-center 2xl:text-md text-sm -ml-2.5 gap-4.5 px-4 py-3 text-gray-800 hover:bg-dark-3 hover:text-red-500 rounded-3xl transition-all duration-250 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <div className="w-6 flex items-center justify-center flex-shrink-0">
           <FaSignOutAlt size={22} />

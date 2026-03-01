@@ -83,7 +83,7 @@ export default function SignupComponent() {
     <div className="flex h-screen">
       {/* Left side - Logo & Message */}
       <motion.div
-        className="w-1/3 relative bg-rose-100 flex flex-col items-center justify-center border-r border-gray-300"
+        className="w-1/3 bg-rose-100/5 relative flex flex-col items-center justify-center border-r border-gray-100"
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.2, ease: "easeOut" }}
@@ -121,7 +121,7 @@ export default function SignupComponent() {
 
       {/* Right side of screen - Signup Form */}
       <motion.div
-        className="w-2/3 bg-lightpurp flex items-center"
+        className="w-2/3 bg-blue-400/10 flex items-center"
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
