@@ -1,3 +1,6 @@
+// central authenticaion configuration
+// will define how users sign in, how sessions are stored (jwt vs database sessions),
+// callbacks, what route/handlers get generated in their GET/POST auth endpoints
 import prisma from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import NextAuth from "next-auth";
@@ -48,6 +51,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           id: user.id,
           email: user.email,
           username: user.username,
+          image: user.image || null,
+          name: user.name || null,
         };
       },
     }),
@@ -63,21 +68,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
+        token.username = user.username;
+        token.image = user.image;
+        token.name = user.name;
       }
       return token;
     },
+
     // setting session user id to the token id, that we set to user id
     // this way when the user logs in we have access to their id to do different functions
     // this function is claled everytime setSession() or useSession() is used in the frontend
     async session({ session, token }) {
       if (token && session.user) {
         session.user.id = token.id as string;
+        session.user.username = token.username as string;
+        session.user.image = (token.image as string | null) ?? null;
+        session.user.name = (token.name as string | null) ?? null;
       }
       return session;
     },
   },
 
-  pages:{
-    signIn:"/"
-  }
+  pages: {
+    signIn: "/",
+  },
 });

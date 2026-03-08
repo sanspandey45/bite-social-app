@@ -4,6 +4,7 @@ import "./globals.css";
 import QueryProvider from "../../providers/QueryProvider";
 import { ToastContainer } from "react-toastify";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import AuthSessionProvider from "../../providers/SessionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +36,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} bg-dark-1 antialiased`}
       >
         <ScrollToTop />
-        <QueryProvider>{children}</QueryProvider>
+        <AuthSessionProvider>
+          <QueryProvider>{children}</QueryProvider>
+        </AuthSessionProvider>
         <ToastContainer
           position="top-center"
           theme="light"

@@ -13,7 +13,7 @@ import {
 
 export default function Post() {
   return (
-    <div className="bg-white p-6 rounded-2xl border border-gray-300 shadow-xl mb-5">
+    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-xl mb-5">
       {" "}
       {/* uploaded post box */}{" "}
       <div className="flex gap-2.5 items-center">
@@ -24,7 +24,7 @@ export default function Post() {
             src="/images/profile.jpg"
             fill
             alt="profile-pic"
-            className="object-cover rounded-full border-1 border-gray-400 shrink-0 hover:border-blue-primary/70 hover:border-2 transition cursor-pointer"
+            className="object-cover rounded-full shrink-0 hover:border-blue-primary/70 shadow-lg hover:border-2 transition cursor-pointer"
           />
         </div>
         <div>

@@ -17,9 +17,11 @@ import {
   BiSolidBookmark,
 } from "react-icons/bi";
 import { usePathname } from "next/navigation";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useState } from "react";
 import { FaRegStar } from "react-icons/fa6";
+import { useGetUser } from "../../../custom-hooks/useUser";
+import Image from "next/image";
 
 // using links to make it more organized
 const links = [
@@ -54,10 +56,11 @@ const links = [
     icon: <FaUserPlus size={22} className="ml-1" />,
     name: "Add Friends",
   },
-  { href: "/profile", icon: <FaUser size={18} />, name: "Profile" },
+  { href: "/profile", icon: "pfp", name: "Profile" },
 ];
 
 export default function LeftSidebar() {
+  const { data: session } = useSession();
   const [isSigningOut, setIsSigningOut] = useState(false); // to generate spinner
 
   const handleSignout = async () => {
@@ -76,7 +79,7 @@ export default function LeftSidebar() {
 
   return (
     <nav
-      className="hidden lg:flex fixed mt-6 lg:left-36 2xl:left-84 top-0 h-[93%] w-60 rounded-2xl bg-white flex-col p-5 transition-all duration-200 overflow-hidden border border-gray-300/60 shadow-md hover:shadow-xl " /* whole bar items */
+      className="hidden lg:flex fixed mt-6 lg:left-36 2xl:left-84 top-0 h-[93%] w-60 rounded-2xl bg-white flex-col p-5 transition-all duration-200 overflow-hidden border border-gray-100 shadow-md hover:shadow-xl " /* whole bar items */
     >
       <div
         className="flex items-center gap-2 mb-9 whitespace-nowrap" /* logo */
@@ -111,7 +114,18 @@ export default function LeftSidebar() {
                 <div
                   className="relative w-6 flex items-center justify-center flex-shrink-0" /* wrapping dot and icon in div; dot's absolute position will be RELATIVE to this div */
                 >
-                  {link.icon}
+                  {link.icon === "pfp" ? (
+                    <div className="relative w-[24px] h-[24px]">
+                      <Image
+                        src={session?.user.image || "/images/profile.jpg"}
+                        fill
+                        alt="profile"
+                        className="object-cover rounded-full shadow-lg"
+                      />
+                    </div>
+                  ) : (
+                    link.icon // Regular icon
+                  )}
                   {isActive /* centers circle below icon; "absolute" removes it form normal document flow so doesnt take up space/make area bigger */ && (
                     <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full">
                       {" "}

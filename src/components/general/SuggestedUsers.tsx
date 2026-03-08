@@ -17,7 +17,7 @@ export default function SuggestedUsers() {
 {/* This needs to be scrollable*/}
   return (
     
-    <div className="fixed-center bg-white rounded-2xl h-62.5 mt-4 flex p-1 gap-1.5 items-center flex-col overflow-y-auto border border-gray-300/60 shadow-md hover:shadow-xl transition">
+    <div className="fixed-center bg-white rounded-2xl h-62.5 mt-4 flex p-1 gap-1.5 items-center flex-col overflow-y-auto border border-gray-100 shadow-md hover:shadow-xl transition">
       <h3 className="text-center text-gray-800 text-md font-semibold mt-1 mb-1">
         Suggested Users
       </h3>

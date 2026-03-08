@@ -48,15 +48,17 @@ model User{
 
 model Post{
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  restaurantName String  // for now: typed text but later restaurant selection
+  // Optional, but no rating means 0 stars, and should be handled in frontend
+  rating        Int? // 0-10 to account for half-stars
   text          String?
   image         String?
+  visitedAt     DateTime?
   imagePublicId String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   authorId      String   @db.ObjectId // Reference to User who created the post 
-  //rating    Int 
-      // 1-10, to account for half-stars
-      // Optional? Since no rating means 0 stars, and can be handled in frontend
+
   
   // relationships
   author        User           @relation("UserPosts",fields: [authorId],references: [id] )

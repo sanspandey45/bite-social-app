@@ -3,7 +3,7 @@ import { FaThumbtack } from "react-icons/fa6";
 
 export default function PinnedLists() {
   return (
-    <div className="fixed-center bg-white rounded-2xl h-52 -mt-1 flex p-1 gap-1.5 items-center flex-col border border-gray-300/60 shadow-md hover:shadow-xl transition">
+    <div className="fixed-center bg-white rounded-2xl h-52 -mt-1 flex p-1 gap-1.5 items-center flex-col border border-gray-100 shadow-md hover:shadow-xl transition">
       <h3 className="text-center text-md font-semibold mt-1">Pinned Lists</h3>
       <button className="text-red-500/60 w-67 hover:text-red-500/85 flex items-center bg-gray-300/60 hover:bg-gray-300 transition px-2.25 py-2 gap-2 m-1 rounded-full cursor-pointer">
         <FaThumbtack size={22} />

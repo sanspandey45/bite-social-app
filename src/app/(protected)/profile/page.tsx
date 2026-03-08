@@ -21,7 +21,7 @@ export default function ProfilePage() {
         setIsModalOpen={setIsModalOpen}
         user={user} // passing user as a prop
       />
-      <div className="bg-white p-5.5 rounded-3xl border border-gray-300 shadow-xl">
+      <div className="bg-white p-5.5 rounded-3xl border border-gray-100 shadow-xl">
         {/* Everything in top bar */}
         <div className="flex items-center justify-between gap-4">
           {/* Profile Picture */}
@@ -30,7 +30,7 @@ export default function ProfilePage() {
               src={user?.image || "/images/profile.jpg"}
               alt="profile-pic"
               fill
-              className="object-cover rounded-full border-1 border-gray-500 transition"
+              className="object-cover rounded-full shadow-xl transition"
             />
           </div>
 

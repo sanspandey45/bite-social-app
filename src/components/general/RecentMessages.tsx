@@ -6,7 +6,7 @@ import { BsEye } from "react-icons/bs";
 
 export default function RecentMessages() {
     return(
-              <div className="fixed-center bg-white rounded-2xl h-56 mt-4 flex p-1 gap-1.5 items-center flex-col border border-gray-300/60 shadow-md hover:shadow-xl transition">
+              <div className="fixed-center bg-white rounded-2xl h-56 mt-4 flex p-1 gap-1.5 items-center flex-col border border-gray-100 shadow-md hover:shadow-xl transition">
         <div className="relative flex items-center justify-center mt-1 text-gray-800 text-md font-semibold">
           Recent Messages
         </div>

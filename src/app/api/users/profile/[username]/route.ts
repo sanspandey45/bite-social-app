@@ -25,6 +25,9 @@ export async function GET(
         username: true,
         name: true,
         image: true,
+        bio: true,
+        favCuisines: true,
+        favSpots:true,
         createdAt: true,
         _count: {
           select: {
